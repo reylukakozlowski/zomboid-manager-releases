@@ -1,0 +1,44 @@
+name: Bug report
+description: Something in zomboid-manager does not work as it should.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for the report. Please do not paste passwords, server addresses or other private data.
+        A security problem goes to the [security policy](https://github.com/reylukakozlowski/zomboid-manager-releases/security/policy) instead, not here.
+  - type: input
+    id: version
+    attributes:
+      label: zomboid-manager version
+      description: Help → About shows it.
+      placeholder: "0.2.0"
+    validations:
+      required: true
+  - type: input
+    id: windows
+    attributes:
+      label: Windows version
+      placeholder: Windows 11 24H2
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you do, what did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. ...
+        2. ...
+  - type: textarea
+    id: message
+    attributes:
+      label: Message at the bottom of the window
+      description: The text the program showed, if any.
+      render: text
