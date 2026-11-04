@@ -1,0 +1,17 @@
+name: Idea
+description: Something zomboid-manager could do better.
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is hard today?
+      description: The situation on your server or with your mods.
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would help?
+    validations:
+      required: true
