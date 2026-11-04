@@ -7,7 +7,7 @@ two lines your server needs — `WorkshopItems=` and `Mods=` — ready to paste 
 [**⬇ Download zomboid-manager for Windows**](https://github.com/reylukakozlowski/zomboid-manager-releases/releases/latest/download/zomboid-manager-win-Setup.exe)
 · [All files of the latest release](https://github.com/reylukakozlowski/zomboid-manager-releases/releases/latest)
 
-![zomboid-manager: the mod list with a red row, why it is red, and the two lines for the server](images/window.png)
+![zomboid-manager: the mod list with a mod in the wrong place selected, why it is a problem, and the two lines for the server](images/window.png)
 
 ## What it does
 
@@ -39,7 +39,8 @@ program.
 
 **Updates:** the program asks this page for a newer version when it starts (you can turn that off in
 *Settings*) and on *Help → Check for updates*. It downloads an update only when you click **Update**, then restarts;
-your mod list stays.
+your mod list stays. Updates come only from the releases of this repository, and before installing one the program
+checks the downloaded package against the SHA-1 and SHA-256 listed in the release's update feed.
 
 ## Is it safe?
 
@@ -52,8 +53,9 @@ your mod list stays.
 
   The `Hash` it prints must be the same as the one GitHub shows (GitHub writes it in lower case, PowerShell in
   upper case — only the letters' case may differ). If it is not the same, do not run the file.
-- **What it changes on your PC:** the program goes to `%LocalAppData%\zomboid-manager`; your mod list and settings
-  live in `%APPDATA%\zomboid-manager` (`mods.json`, `settings.json`). Nothing else.
+- **What it changes on your PC:** the program and its updater (`Update.exe`) go to `%LocalAppData%\zomboid-manager`,
+  with shortcuts in the Start menu and on the desktop and an entry in Windows *Apps* for uninstalling. Your mod list
+  and settings live in `%APPDATA%\zomboid-manager` (`mods.json`, `settings.json`). Nothing else on your PC changes.
 - **What it connects to, and only then:**
   - Steam's public Web API (`api.steampowered.com`) when you click **Fetch** — to read a mod's title and
     description. No Steam account or key.
@@ -61,7 +63,10 @@ your mod list stays.
   - Your web browser opens the Steam Workshop when you choose *Open Workshop page* or *Search Workshop for the name*.
 - **What it never does:** it does not connect to your server, does not change your server's files (you paste the
   lines yourself), does not change your mods (it only reads the `mod.info` files Steam downloaded), and sends no
-  usage data — there is no telemetry and no account.
+  usage data — there is no telemetry and no account. As with any website, Steam and GitHub see your IP address when
+  the program asks them something.
+- **The source code is not public** for now, so you cannot review it yourself. What you can check is that the file
+  you downloaded is the published one (SHA-256, above).
 - Antivirus programs sometimes flag programs built with PyInstaller by mistake. If yours does, compare the SHA-256
   as above and report the false positive to your antivirus vendor.
 - Found a security problem? Please follow the [security policy](SECURITY.md) and report it privately.
@@ -86,7 +91,7 @@ Windows **Settings → Apps**, find **zomboid-manager**, choose **Uninstall**. Y
 ## Feedback
 
 - Something does not work, or you have an idea? [Open an issue](https://github.com/reylukakozlowski/zomboid-manager-releases/issues/new/choose).
-- This repository holds the releases only (the newest one); the source code is private for now.
+- This repository holds the releases only (the newest one).
 
 ## Licence
 
